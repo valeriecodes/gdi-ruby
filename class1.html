@@ -63,6 +63,9 @@
     <li class="fragment">Command-line basics</li>
     <li class="fragment">What is programming?</li>
     <li class="fragment">Why Ruby?</li>
+    <li class ="fragment">Variables, Arithmetic and Objects</li>
+    <li class ="fragment">Error Messages</li>
+    <li class ="fragment">Boolean Expressions and Conditionals</li>
   </ul>
 </section>
 
@@ -248,11 +251,428 @@ ls
 <section>
 <h3>Questions?</h3>
 </section>
+<section>
+  <h3>Working with IRB</h3>
+  <ul>
+    <li class="fragment">IRB is a command line interface to ruby that is installed when we install Ruby. It works like a calculator and is a
+      great way to get started quickly.
+    </li>
+    <li class="fragment">Open: In the terminal, type `irb`</li>
+    <li class="fragment">Quit: Type `quit` and then press `enter`</li>
+    <li class="fragment">Follow along with the examples in the slides. Type them in!</li>
+    <li class="fragment">Feel free to explore as well. You will not accidentally break things.</li>
+  </ul>
+</section>
+<section>
+  <h3>Arithmetic</h3>
+  <p>Try out some calculator functions</p>
+  <pre>
+    <code contenteditable class="ruby">
+  3 + 4
+  2 * 4
+  6 - 2
+  4 / 2
+  4 /* 2
+  => SyntaxError: (irb):10:syntax error, unexpected *
+    </code>
+  </pre>
+</section>
+<section>
+  <h3>Errors are Neat!</h3>
+  <ul>
+    <li class="fragment">There are different kinds of errors that can occur. We just saw the <strong>SyntaxError</strong> which often
+      helps us find misspelled words or missing quotes.
+    </li>
+    <li class="fragment">Take time to read each Error. They often tell you how to fix the issue and can be a great
+      starting point when searching for help online.
+    </li>
+  </ul>
+  <pre>
+    <code contenteditable class="ruby fragment">
+  irb> hi
+  NameError: undefined local variable or method `hi' for main:Object
+    </code>
+  </pre>
+</section>
+<!-- Variables - 10 min -->
+<section>
+  <h3>Variables</h3>
+  <ul>
+    <li class="fragment">Variables are references to information.</li>
+    <li class="fragment">We reference variables by name.</li>
+    <li class="fragment">They are called variable because the information they reference may change.</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # Everything after this pound sign will not be evaluated.
+  # These are called comments and I will use them to annotate code
+  age = 50
+  days_in_year = 365
+  days_alive = age * days_in_year
+  => 18250
+  </code></pre>
+</section>
+<section>
+  <h3>Ruby's Variables</h3>
+  <ul>
+    <li class="fragment">Ruby has three kinds of variables, one kind of constant and exactly two pseudo-variables.</li>
+    <li class="fragment">A local variable starts with a lower case letter or an underscore character (_) and consists entirely of letters, numbers and underscores.</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  age = 50
+  _age = 50
+  _my_age = 50
+  </code></pre>
+</section>
+<section>
+  <h3>What can I do with a Variable?</h3>
+  <ul>
+    <li class="fragment">Create - Initialize</li>
+    <li class="fragment">Access - Read</li>
+    <li class="fragment">Assign - Replace</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # create and assign in one line
+  age = 0
 
+  # access the value in age
+  age
+
+  # replace value in age
+  age = 40
+  </code></pre>
+</section>
+<section>
+  <h3>Variable naming</h3>
+  <ul>
+    <li class="fragment">Express what is stored inside</li>
+    <li class="fragment">Make it easy to read</li>
+    <li class="fragment">Should be understood by someone who has no idea what your program does</li>
+    <li class="fragment">Should be unique</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # good
+  occupation = "software engineer"
+
+  # bad
+  occupation_i_always_dreamed_of_having_in_la = "software engineer"
+  o = "software engineer"
+  1st_occupation = "software engineer"
+  </code></pre>
+</section>
+<section>
+  <h3>Local Variable Values</h3>
+  <ul>
+    <li class="fragment">No default value</li>
+    <li class="fragment">No type declaration</li>
+    <li class="fragment">Do not live forever</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # error
+  name
+
+  name = "Heather"
+  defined?(name)
+  </code></pre>
+</section>
+<!-- Data Types - 10 min -->
+<section>
+  <h2>Data Types</h2>
+  <p class="fragment">Built-in: Numbers, Strings, Symbols, Booleans, Regular Expressions, Arrays, Ranges & Hashes</p>
+  <ul>
+    <li class="fragment">Data always has a "type"</li>
+    <li class="fragment">You will hear the words Class/Type/Object used interchangeably</li>
+    <li class="fragment">Let's explore a few built in Objects</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  irb> 1.class
+  => Fixnum
+  irb> "Hello".class
+  => String
+  irb> 1.0022.class
+  => Float
+  irb> [1,2,3].class
+  => Array
+  </code></pre>
+</section>
+<section>
+  <h3>Strings</h3>
+  <p>Strings are characters inside double or single quotes.</p>
+  <pre><code contenteditable class="ruby fragment">
+  a = 'Hello '
+  b = "World"
+  c = a + b
+  c.reverse
+  => "dlroW olleH"
+  </code></pre>
+  <pre><code contenteditable class="ruby fragment">
+  a = "Spam "
+  b = a * 4
+  # Here multiplying a by 4 concatenates (links) four strings together
+  =>"Spam Spam Spam Spam "
+  </code></pre>
+</section>
+<section>
+  <h3>String Practice</h3>
+  <pre><code contenteditable class="ruby">
+  "Heather".upcase
+  "Heather".downcase
+  "heather".capitalize
+  "Hello".reverse
+  "Heather".length
+  "Heather Moore".swapcase
+  "".empty?
+  </code></pre>
+  <p>What is the reverse of your name?</p>
+  <p>How many characters long is your name?</p>
+  <p>Can you repeat the word hello 100 times?</p>
+  <p>What is the 5th character of my name?</p>
+</section>
+<section>
+  <h3>Numbers</h3>
+  <p>Numeric data comes in two types: <strong>Integers</strong> and <strong>Floats</strong></p>
+  <p>Integers are either <strong>Fixnum</strong> or <strong>Bignum</strong>. They do not have decimals.</p>
+  <pre><code contenteditable class="ruby fragment">
+    irb> 1_000_000_000_000_000_000.class
+     => Fixnum
+    irb> 1_000_000_000_000_000_000_000.class
+     => Bignum
+  </code></pre>
+  <p>Floats are numbers with at least one number to the left of a decimal point.</p>
+  <pre><code contenteditable class="ruby fragment">
+    irb> 1.001.class
+     => Float
+  </code></pre>
+</section>
+<section>
+  <h3>Number Practice</h3>
+  <pre><code contenteditable class="ruby">
+  7/8
+  7.0/8.0
+  3.14.to_s
+  3.14.to_i
+  1 + "2"
+  1 + "2".to_i
+  (1 + 2) * 3
+  1 + (2 * 3)
+  </code></pre>
+  <p>How many seconds are in an hour?</p>
+  <p>How many minutes are in a week?</p>
+  <p>How many years old are you if you've been alive 1 million seconds?</p>
+</section>
+<section>
+            <h3>Booleans</h3>
+            <p>A <strong>boolean</strong> is a basic data type. It can have only two values: true or false.</p>
+
+            </section>
+
+            <section>
+                <h3>Boolean Expressions</h3>
+                <p>Code that compares values and returns True or False is called a <strong>Boolean expression</strong></p>
+                <ul>
+                    <li>Test for equality by using `==`. We can't use `=` because that is used for assignment</li>
+                    <li>Test for greater than and less than using `&gt;` and `&lt;`</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Boolean Expressions cheat sheet</h3>
+                
+                <table>
+                    <tr>
+                        <td>a == b</td>
+                        <td>a is equal to b</td>
+                    </tr>
+                    <tr>
+                        <td>a != b</td>
+                        <td>a does not equal b</td>
+                    </tr>
+                    <tr>
+                        <td>a &lt; b</td>
+                        <td>a is less than b</td>
+                    </tr>
+                    <tr>
+                        <td>a &gt; b</td>
+                        <td>a is greater than b</td>
+                    </tr>
+                    <tr>
+                        <td>a &lt;= b</td>
+                        <td>a is less than or equal to b</td>
+                    </tr>
+                    <tr>
+                        <td>a &gt;= b</td>
+                        <td>a is greater than or equal to b</td>
+                    </tr>
+                </table>
+                <p>Learn more about logical operators in Ruby <a href="http://www.tutorialspoint.com/ruby/ruby_operators.htm" alt="Operators tutorial">here</a>.</p>
+                </section>
+
+                <section>
+                <h3>Boolean Expressions practice</h3>
+                <pre><code  class="ruby">
+# try some of these out in IRB
+a = 3
+b = 4
+a != b
+a <= 3
+a >= 4
+a = 5
+b = 5
+a == b 
+c = a == b # Combine comparison and assignment
+puts c
+3 &lt; 5
+                </code></pre>
+                <p>Remember: Equals does not equal "equals equals"</p>
+                <p> <a href="http://ruby.learncodethehardway.org/book/ex27.html">Further reading </a> on boolean expressions...</p>
+            </section>
+
+            <section>
+                <h3>Boolean Expressions</h3>
+                <p>A boolean expression evaluates to true or false. It can also have multiple parts, joined by AND (&&) or OR (||).</p>
+                <table>
+                    <tr>
+                        <th>EXPRESSION</th>
+                        <th>EVALUATES TO</th>
+                    </tr>
+                    <tr>
+                        <td>true && true</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>true && false</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>false && false</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>true || true</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>true || false</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>false || false</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>not (true && false)</td>
+                        <td>true</td>
+                    </tr>
+                </table>
+                <p> <a href="http://ruby.learncodethehardway.org/book/ex28.html">Further practice </a> on boolean expressions...</p>
+            </section>
+
+            <section>
+            <h3>Let's Develop It</h3>
+            <p>Take a few minutes and experiment with boolean expressions in IRB. You can start with the examples below.</p>
+            <pre><code class="ruby">
+true && false
+1 == 1 && 2 > 37
+"boop" == "bip" || 7 == 8
+false || true 
+89 > 88 || 89 < 90
+true || not(1 == 1 || 2 == 65)
+            </code></pre>
+            </section>
+
+            <section>
+              <h3>Putting Booleans to Work</h3>
+              <p>So, what's the value of knowing if a statement is true or false? Often, you'll use that to control whether a piece of code will execute or not.</p>
+
+              <pre><code  class="ruby">
+user_guess = gets.chomp.to_i
+secret_number = 312
+
+if user_guess < secret_number 
+  puts "Too low!"
+elsif user_guess > secret_number
+  puts "Too high!"
+else 
+  puts "You guessed it. Wow maybe you're psychic...."
+end 
+            </code></pre>
+            <p>Can you tell what this code does?</p>
+          </section>                  
+
+            <section>
+                <h3>Conditionals</h3>
+                <p>When we want different code to execute depending on certain criteria, we use a <strong>conditional</strong></p>
+                <p>We achieve this using <strong>if</strong> statements and boolean expressions.</p>
+                <pre><code  class="ruby">
+if x == 5
+puts 'x is equal to 5'
+end
+                </code></pre>
+                </section>
+                <section>
+                <h3>Conditionals</h3>
+                <p>We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong>.</p>
+                <pre><code  class="ruby">
+if x == 5
+  puts 'x is equal to 5'
+else
+  puts 'x is not equal to 5'
+end
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Conditionals</h3>
+                <p>The following shows some examples of conditionals with more complex boolean expressions:</p>
+                <pre><code  class="ruby">
+# And
+if x > 3 && y > 3
+  puts 'Both values are greater than 3'
+end
+
+# Or 
+if x != 0 || y != 0
+  puts 'The point x,y is not on the x or y axis'
+end
+
+# Not
+if not(x > y)
+  puts 'x is less than y'
+end
+                </code></pre>
+            </section>
+
+            <section>
+                <h3>Chained conditionals</h3>
+                <p>Conditionals can also be <strong>chained</strong>.</p>
+                <p>Chained conditionals use <strong>elsif</strong> to test if additional statements are true. The single 'else' action will only happen if all preceding conditions are false.</p>
+
+                <p>For example:</p>
+                <pre><code  class="ruby">
+if x > 10
+  puts "x is greater than 10"
+elsif x <= 10 && x > 0
+  puts "x is a number between 1 and 10"
+else
+  puts "Wow, don't be so negative, dude"
+end
+                </code></pre>
+            </section>
+<section>
+  <h3>Homework</h3>
+  <p><strong>Practice:</strong> (if you're not feeling comfortable in the terminal) spend at least 20 minutes practicing navigating and creating/removing documents and directories with the command line.</p>
+  <p><strong>Prep:</strong> Work through Code Academy's <a href="http://www.codecademy.com/courses/ruby-beginner-en-d1Ylq/0/1?curriculum_id=5059f8619189a5000201fbcb" alt="Code Academy">"Intro to Ruby"</a>. If you don't have previous programming experience, read Chapters 1 and 2 in <a href="https://pine.fm/LearnToProgram/?Chapter=01" alt="Learn to Program">Learn to Program</a> - don't try to do the exercises at the end, though. </p>
+</section>
 <section>
 <h3>Homework</h3>
-<p><strong>Practice:</strong> spend at least 20 minutes practicing navigating and creating/removing documents and directories with the command line.</p>
-<p><strong>Prep:</strong> Work through Code Academy's <a href="http://www.codecademy.com/courses/ruby-beginner-en-d1Ylq/0/1?curriculum_id=5059f8619189a5000201fbcb" alt="Code Academy">"Intro to Ruby"</a>. If you don't have previous programming experience, read Chapters 1 and 2 in <a href="https://pine.fm/LearnToProgram/?Chapter=01" alt="Learn to Program">Learn to Program</a> - don't try to do the exercises at the end, though. </p>
+<p>Write a program in your text editor that uses conditionals and user input to allow the user to play an adventure game.</p>
+<p>"gets.chomp" is the value of user input at the command line, with the trailing whitespace chomped off. To do math with it, convert it to an integer with the ".to_i" method</p>
+<pre><code>
+  input = gets.chomp.to_i 
+</code></pre>
+<p>Run your program by calling it with Ruby from the command line.</p>
+<pre><code>
+  $ ruby program_name.rb 
+</code></pre>
 </section>
 
 <section>
