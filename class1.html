@@ -20,7 +20,7 @@
 <!-- Welcome & Intros - 20 min -->
 <section>
     <img src = "images/gdi_logo_badge.png" border=0>
-    <h3>Ruby 101</h3>
+    <h3>Intro to Ruby</h3>
     <h4>Class 1</h4>
 </section>
 <section>
@@ -146,19 +146,19 @@
             <tr>
               <td><strong>rm -rf [directoryname]</strong></td>
               <td>"remove recursively with force" the directory called directoryname</td>
-            </tr> 
+            </tr>
             <tr>
               <td><strong>clear OR cmd+k</strong></td>
               <td>clear the terminal screen</td>
-            </tr> 
+            </tr>
             <tr>
               <td><strong>help</strong></td>
               <td>lists all possible commands</td>
-            </tr> 
+            </tr>
             <tr>
               <td><strong>man [command]</strong></td>
               <td>displays the manual for command</td>
-            </tr>            
+            </tr>
           </table>
         </section>
 
@@ -179,7 +179,7 @@ cd ruby_adventures
 touch class1.rb
 
 # list the contents of the directory
-ls 
+ls
         </code></pre>
         </section>
 
@@ -476,7 +476,7 @@ ls
 
             <section>
                 <h3>Boolean Expressions cheat sheet</h3>
-                
+
                 <table>
                     <tr>
                         <td>a == b</td>
@@ -517,7 +517,7 @@ a <= 3
 a >= 4
 a = 5
 b = 5
-a == b 
+a == b
 c = a == b # Combine comparison and assignment
 puts c
 3 &lt; 5
@@ -573,7 +573,7 @@ puts c
 true && false
 1 == 1 && 2 > 37
 "boop" == "bip" || 7 == 8
-false || true 
+false || true
 89 > 88 || 89 < 90
 true || not(1 == 1 || 2 == 65)
             </code></pre>
@@ -587,16 +587,16 @@ true || not(1 == 1 || 2 == 65)
 user_guess = gets.chomp.to_i
 secret_number = 312
 
-if user_guess < secret_number 
+if user_guess < secret_number
   puts "Too low!"
 elsif user_guess > secret_number
   puts "Too high!"
-else 
+else
   puts "You guessed it. Wow maybe you're psychic...."
-end 
+end
             </code></pre>
             <p>Can you tell what this code does?</p>
-          </section>                  
+          </section>
 
             <section>
                 <h3>Conditionals</h3>
@@ -629,7 +629,7 @@ if x > 3 && y > 3
   puts 'Both values are greater than 3'
 end
 
-# Or 
+# Or
 if x != 0 || y != 0
   puts 'The point x,y is not on the x or y axis'
 end
@@ -667,11 +667,11 @@ end
 <p>Write a program in your text editor that uses conditionals and user input to allow the user to play an adventure game.</p>
 <p>"gets.chomp" is the value of user input at the command line, with the trailing whitespace chomped off. To do math with it, convert it to an integer with the ".to_i" method</p>
 <pre><code>
-  input = gets.chomp.to_i 
+  input = gets.chomp.to_i
 </code></pre>
 <p>Run your program by calling it with Ruby from the command line.</p>
 <pre><code>
-  $ ruby program_name.rb 
+  $ ruby program_name.rb
 </code></pre>
 </section>
 
@@ -681,8 +681,8 @@ end
   <ul>
     <li>Start a study group with some classmates</li>
     <li><a href="http://www.meetup.com/">Ruby/Rails Meetup Groups</a></li>
-    <li><a href="http://www.girlsintechla.org/">Girls in Tech LA</a></li>
-    <li><a href="http://www.meetup.com/LearnToCodeLA/">Learn to Code LA</a></li>
+    <li><a href="http://womenwhocodedc.github.io/">Women Who Code DC</a></li>
+    <li><a href="http://dcfemtech.github.io/">DCFemTech</a></li>
 
   </ul>
 </section>
